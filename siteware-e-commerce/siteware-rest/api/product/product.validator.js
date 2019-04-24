@@ -1,4 +1,4 @@
-const Joi = require('joi');
+const { Joi } = require('celebrate');
 
 class ProductValidator {
 

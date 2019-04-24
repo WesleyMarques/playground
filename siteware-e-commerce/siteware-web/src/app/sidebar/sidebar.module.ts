@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SwSidebarComponent } from './sw-sidebar/sw-sidebar.component';
-import { MatToolbarModule, MatButtonModule, MatIconModule } from "@angular/material";
+import { MatToolbarModule, MatButtonModule, MatIconModule, MatBadgeModule } from "@angular/material";
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [SwSidebarComponent],
@@ -9,7 +10,9 @@ import { MatToolbarModule, MatButtonModule, MatIconModule } from "@angular/mater
     CommonModule,
     MatToolbarModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    RouterModule,
+    MatBadgeModule
   ],
   exports: [SwSidebarComponent]
 })
