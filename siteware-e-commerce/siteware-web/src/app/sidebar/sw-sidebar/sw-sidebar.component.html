@@ -1,5 +1,5 @@
 <mat-toolbar role="heading" color="primary">
-  <span>Siteware e-commerce</span>
+  <span [routerLink]="['/']">Siteware e-commerce</span>
 
   <span class="example-fill-remaining-space"></span>
 
@@ -10,7 +10,7 @@
     </button>
     <button matTooltip="Cart"
         matTooltipPosition="below" mat-icon-button [routerLink]="['/checkout']">
-      <mat-icon matBadge="8" matBadgePosition="after" matBadgeColor="accent">shopping_cart</mat-icon>
+      <mat-icon [matBadgeHidden]="getOrderSize() == 0" [matBadge]="getOrderSize()" matBadgePosition="after" matBadgeColor="accent">shopping_cart</mat-icon>
     </button>
   </span>
 </mat-toolbar>

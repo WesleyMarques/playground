@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Order } from 'src/app/shared/models/order.model';
+import { OrderService } from 'src/app/shared/order.service';
+
 @Component({
   selector: 'app-checkout-list',
   templateUrl: './checkout-list.component.html',
@@ -7,7 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CheckoutListComponent implements OnInit {
 
-  constructor() { }
+  activeOrder:Order;
+
+  constructor(private _orderService:OrderService) {
+    this.activeOrder = this._orderService.getCurrentOrder();
+  }
 
   ngOnInit() {
   }

@@ -1,4 +1,4 @@
-import { Resource } from './resource';
+import { Resource } from 'src/app/shared/resource';
 
 export interface Serializeble {
   fromJson(json: any): Resource;

@@ -1,4 +1,4 @@
-import { Serializeble } from 'src/app/shared/serializeble.interface';
+import { Serializeble } from 'src/app/shared/interfaces/serializeble.interface';
 import { Product } from 'src/app/shared/models/product.model';
 
 export class ProductSerializer implements Serializeble{

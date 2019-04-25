@@ -5,7 +5,9 @@ import { Product } from 'src/app/shared/models/product.model';
 import { ResourceService } from 'src/app/shared/resource.service';
 import { ProductSerializer } from 'src/app/shared/product.serializer';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ProductService extends ResourceService<Product>{
 
   constructor(httpClient: HttpClient) {

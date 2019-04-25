@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { Resource } from './resource';
-import { Serializeble } from './serializeble.interface';
+import { Serializeble } from 'src/app/shared/interfaces/serializeble.interface';
 
 export class ResourceService<T extends Resource> {
 constructor(
