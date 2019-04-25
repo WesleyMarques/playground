@@ -7,6 +7,7 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { AppComponent } from 'src/app/app.component';
 import { SidebarModule } from 'src/app/sidebar/sidebar.module';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { CheckoutModule } from 'src/app/checkout/checkout.module';
 import { ProductGridModule } from 'src/app/product-grid/product-grid.module';
 
 @NgModule({
@@ -20,7 +21,8 @@ import { ProductGridModule } from 'src/app/product-grid/product-grid.module';
     SidebarModule,
     FlexLayoutModule,
     SharedModule,
-    ProductGridModule
+    ProductGridModule,
+    CheckoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

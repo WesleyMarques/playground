@@ -6,8 +6,10 @@ import { ProductGridModule } from 'src/app/product-grid/product-grid.module';
 
 import { SwDashboardComponent } from 'src/app/dashboard/sw-dashboard/sw-dashboard.component';
 import { SwProductGridComponent } from 'src/app/product-grid/sw-product-grid/sw-product-grid.component';
+import { SwCheckoutComponent } from 'src/app/checkout/sw-checkout/sw-checkout.component';
 
 const routes: Routes = [
+  { path: 'checkout', component: SwCheckoutComponent },
   { path: 'products', component: SwProductGridComponent },
   { path: 'dashboard', component: SwDashboardComponent },
   {
