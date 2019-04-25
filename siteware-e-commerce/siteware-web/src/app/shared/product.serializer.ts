@@ -1,7 +1,7 @@
-import { Serializer } from 'src/app/shared/serializer.interface';
+import { Serializeble } from 'src/app/shared/serializeble.interface';
 import { Product } from 'src/app/shared/models/product.model';
 
-export class ProductSerializer implements Serializer{
+export class ProductSerializer implements Serializeble{
 
   fromJson(json: any):Product{
     const product = new Product();

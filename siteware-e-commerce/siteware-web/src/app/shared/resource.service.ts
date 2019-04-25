@@ -3,14 +3,14 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { Resource } from './resource';
-import { Serializer } from './serializer.interface';
+import { Serializeble } from './serializeble.interface';
 
 export class ResourceService<T extends Resource> {
 constructor(
     private httpClient: HttpClient,
     private url: string,
     private endpoint: string,
-    private serializer: Serializer) {}
+    private serializer: Serializeble) {}
 
   public create(item: T): Observable<T> {
     return this.httpClient
@@ -34,7 +34,7 @@ constructor(
   list(): Observable<T[]> {
     return this.httpClient
       .get(`${this.url}/${this.endpoint}`)
-      .pipe(map((data: any) => this.convertData(data.items)));
+      .pipe(map((data: any) => this.convertData(data)));
   }
 
   delete(id: number) {
@@ -43,6 +43,7 @@ constructor(
   }
 
   private convertData(data: any): T[] {
+    console.log(data)
     return data.map(item => this.serializer.fromJson(item));
   }
 }

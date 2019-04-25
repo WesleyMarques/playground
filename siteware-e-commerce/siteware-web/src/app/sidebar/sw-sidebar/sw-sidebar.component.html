@@ -4,10 +4,12 @@
   <span class="example-fill-remaining-space"></span>
 
   <span>
-    <button mat-icon-button [routerLink]="['/dashboard']">
+    <button matTooltip="Dashboard"
+        matTooltipPosition="below" mat-icon-button [routerLink]="['/dashboard']">
       <mat-icon>dashboard</mat-icon>
     </button>
-    <button mat-icon-button>
+    <button matTooltip="Cart"
+        matTooltipPosition="below" mat-icon-button>
       <mat-icon matBadge="8" matBadgePosition="after" matBadgeColor="accent">shopping_cart</mat-icon>
     </button>
   </span>
