@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import {
   MatCardModule, MatButtonModule, MatIconModule,
   MatDialogModule, MatFormFieldModule, MatInputModule,
+  MatOptionModule, MatSelectModule
 } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -23,7 +24,9 @@ import { SwDashboardComponent } from './sw-dashboard/sw-dashboard.component';
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatOptionModule,
+    MatSelectModule
   ],
   exports: [SwDashboardComponent],
   entryComponents: [NewProductComponent, NewPromotionComponent]

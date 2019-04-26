@@ -3,7 +3,6 @@ const router = new Router();
 
 
 const product = require('./api/product/product.router');
-const order = require('./api/order/order.router');
 const promotion = require('./api/product/promotion/promotion.router');
 
 router.route('/').get((req, res) => {
@@ -11,7 +10,6 @@ router.route('/').get((req, res) => {
 });
 
 router.use('/product', product);
-router.use('/product/promotion', promotion);
-router.use('/order', order);
+router.use('/promotion', promotion);
 
 module.exports = router;

@@ -1,12 +1,12 @@
-import { Product } from 'src/app/shared/models/product.model';
+import { Resource } from '../resource';
 
-export abstract class Promotion {
-  id: String;
-  product: Product;
+export abstract class Promotion extends Resource {
   quantidade: number;
+  type: string;
 
-  constructor(product: Product, quantidade: number) {
-    this.product = product;
+  constructor(quantidade: number, type: string) {
+    super();
     this.quantidade = quantidade;
+    this.type = type;
   }
 }

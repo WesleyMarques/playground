@@ -27,4 +27,8 @@ export class Item {
   decreaseQuantidade() {
     this.quantidade--;
   }
+
+  getDiscount(){
+    
+  }
 }

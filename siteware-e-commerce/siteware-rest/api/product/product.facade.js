@@ -3,4 +3,4 @@ const productSchema = require('./product.schema');
 
 class ProductFacade extends Facade {}
 
-module.exports = new ProductFacade('Product', productSchema);
+module.exports = new ProductFacade('Product', productSchema, "Promotion");

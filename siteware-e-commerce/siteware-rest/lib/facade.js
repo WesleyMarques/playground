@@ -1,40 +1,44 @@
 const mongoose = require('mongoose');
 
 class Facade {
-  constructor (name, schema) {
+  constructor(name, schema, populate) {
     this.Model = mongoose.model(name, schema);
+    this.populate = populate || "null";
   }
 
-  create (body) {
+  create(body) {
     const model = new this.Model(body);
     return model.save();
   }
 
-  find (...args) {
+  find(...args) {
     return this.Model
       .find(...args)
+      .populate(this.populate)
       .exec();
   }
 
-  findOne (...args) {
+  findOne(...args) {
     return this.Model
       .findOne(...args)
+      .populate(this.populate)
       .exec();
   }
 
-  findById (...args) {
+  findById(...args) {
     return this.Model
       .findById(...args)
+      .populate(this.populate)
       .exec();
   }
 
-  update (...args) {
+  update(...args) {
     return this.Model
       .update(...args)
       .exec();
   }
 
-  remove (...args) {
+  remove(...args) {
     return this.Model
       .remove(...args)
       .exec();
