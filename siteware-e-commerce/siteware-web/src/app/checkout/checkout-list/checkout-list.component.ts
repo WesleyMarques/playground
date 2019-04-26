@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import {MatTable} from '@angular/material';
 
 import { Order } from 'src/app/shared/models/order.model';
-import { OrderService } from 'src/app/shared/order.service';
+import { Item } from 'src/app/shared/models/item.model';
 
 @Component({
   selector: 'app-checkout-list',
@@ -10,23 +11,25 @@ import { OrderService } from 'src/app/shared/order.service';
 })
 export class CheckoutListComponent implements OnInit {
 
-  activeOrder:Order;
+  @Input() order: Order;
+  @ViewChild(MatTable) table: MatTable<any>;
 
-  constructor(private _orderService:OrderService) {
-    this.activeOrder = this._orderService.getCurrentOrder();
+  displayedColumns: string[] = ['name', 'quantidade', 'price'];
+  items: Item[] = [];
+
+  constructor() {
   }
 
   ngOnInit() {
+    this.items = this.order.getItems();
   }
 
-  displayedColumns: string[] = ['item', 'quantidade', 'cost'];
-  transactions: any[] = [
-    { item: 'Beach ball', quantidade:1, cost: 4 },
-    { item: 'Towel', quantidade:1, cost: 5 },
-    { item: 'Frisbee', quantidade:1, cost: 2 },
-    { item: 'Sunscreen', quantidade:1, cost: 4 },
-    { item: 'Cooler', quantidade:1, cost: 25 },
-    { item: 'Swim suit', quantidade:1, cost: 15 },
-  ];
+  hasItems() {
+    return this.items.length > 0;
+  }
 
+  removeItem(item: Item) {
+    item.quantidade <= 0 && this.order.removeItem(item);
+    this.table.renderRows();
+  }
 }

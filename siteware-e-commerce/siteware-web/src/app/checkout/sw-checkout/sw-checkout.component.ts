@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { OrderService } from 'src/app/shared/order.service';
+import { Order } from 'src/app/shared/models/order.model';
+
 @Component({
   selector: 'app-sw-checkout',
   templateUrl: './sw-checkout.component.html',
@@ -7,7 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SwCheckoutComponent implements OnInit {
 
-  constructor() { }
+  activedOrder:Order;
+
+  constructor(private _orderService:OrderService) {
+    this.activedOrder = this._orderService.getCurrentOrder();
+  }
 
   ngOnInit() {
   }

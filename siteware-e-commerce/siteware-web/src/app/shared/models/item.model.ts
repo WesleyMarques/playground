@@ -7,20 +7,24 @@ export class Item {
   quantidade: number;
   promotion: Promotion;
 
-  constructor(product:Product){
+  constructor(product: Product) {
     this.product = product;
     this.quantidade = 1;
   }
 
-  updateItem(quantidade:number){
+  updateItem(quantidade: number) {
     this.quantidade = quantidade;
   }
 
-  getProduct(){
+  getProduct() {
     return this.product;
   }
 
-  increaseQuantidade(){
+  increaseQuantidade() {
     this.quantidade++;
+  }
+
+  decreaseQuantidade() {
+    this.quantidade--;
   }
 }

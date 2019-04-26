@@ -2,5 +2,4 @@
     <div fxFlex="23" *ngFor="let item of products">
       <app-product-card [product]="item" (addProduct)="buyProduct($event)"></app-product-card>
     </div>
-    {{order | json}}
 </div>

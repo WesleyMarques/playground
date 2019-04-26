@@ -42,8 +42,7 @@ constructor(
       .delete(`${this.url}/${this.endpoint}/${id}`);
   }
 
-  private convertData(data: any): T[] {
-    console.log(data)
-    return data.map(item => this.serializer.fromJson(item));
+  private convertData(data): T[] {
+    return data.map((item:object) => this.serializer.fromJson(item));
   }
 }
