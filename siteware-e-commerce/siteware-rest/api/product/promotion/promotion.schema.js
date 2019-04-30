@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 const promotionSchema = new Schema({
   quantidade: { type: Number, required: true },
   discount_percent: {type: Number},
-  discount_fixed: {type: Number}
+  discount_fixed: {type: Number},
+  label: {type: String}
 });
 
 module.exports = promotionSchema;

@@ -11,7 +11,9 @@ class Controller {
 
   find (req, res, next) {
     return this.facade.find(req.query)
-      .then(collection => res.status(200).json(collection))
+      .then(collection => {
+        return res.status(200).json(collection)
+      })
       .catch(err => next(err));
   }
 

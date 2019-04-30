@@ -34,7 +34,7 @@ class Facade {
 
   update(...args) {
     return this.Model
-      .update(...args)
+      .updateOne(...args)
       .exec();
   }
 

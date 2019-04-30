@@ -5,7 +5,8 @@ class ProductValidator {
   constructor(){
     this.querySchema = Joi.object({
       name: Joi.string().required(),
-      price: Joi.number().integer().positive()
+      price: Joi.number().integer().positive(),
+      promotion: Joi.string()
     });
   }
 
