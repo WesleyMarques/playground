@@ -29,6 +29,11 @@ export class Item {
   }
 
   getDiscount(){
-    
+    if(!this.product.promotion) return 0;
+    return this.product.promotion.calcDiscount(this.quantidade, this.product.price);
+  }
+
+  getTotal(){
+    return this.quantidade*this.product.price;
   }
 }

@@ -13,10 +13,10 @@ export class SwCheckoutComponent implements OnInit {
   activedOrder:Order;
 
   constructor(private _orderService:OrderService) {
-    this.activedOrder = this._orderService.getCurrentOrder();
   }
 
   ngOnInit() {
+    this.activedOrder = this._orderService.getCurrentOrder();
   }
 
 }

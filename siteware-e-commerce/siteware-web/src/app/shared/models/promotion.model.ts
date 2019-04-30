@@ -9,4 +9,6 @@ export abstract class Promotion extends Resource {
     this.quantidade = quantidade;
     this.type = type;
   }
+
+  abstract calcDiscount(qtd:number, price:number):number;
 }

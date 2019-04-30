@@ -1,3 +1,3 @@
 export interface Promotable{
-  calcDiscount(): number;
+  calcDiscount(quantidade:number,price:number): number;
 }

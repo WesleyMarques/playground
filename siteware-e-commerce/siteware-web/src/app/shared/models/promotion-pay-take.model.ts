@@ -10,7 +10,11 @@ export class PromotionPayTake extends Promotion implements Promotable{
     this.discount_percent = discount;
   }
 
-  calcDiscount(){
-    return 0;
+  calcDiscount(quantidade:number,price:number){
+    const discountQuantity = Math.floor(quantidade/this.quantidade);
+    const modQuantity = quantidade%this.quantidade;
+    const dicountByGroup = (discountQuantity*this.quantidade*price*this.discount_percent)+(modQuantity*price)
+    const realDiscount = discountQuantity>0?(quantidade*price)-dicountByGroup:0;
+    return realDiscount;
   }
 }

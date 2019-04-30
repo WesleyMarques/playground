@@ -5,10 +5,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { SwCheckoutComponent } from './sw-checkout/sw-checkout.component';
 import { CheckoutListComponent } from './checkout-list/checkout-list.component';
-import { CheckoutItemComponent } from './checkout-item/checkout-item.component';
 
 @NgModule({
-  declarations: [SwCheckoutComponent, CheckoutListComponent, CheckoutItemComponent],
+  declarations: [SwCheckoutComponent, CheckoutListComponent],
   imports: [
     CommonModule,
     MatTableModule,

@@ -12,10 +12,10 @@ export class SwSidebarComponent implements OnInit {
 
   activeOrder:Order;
   constructor(private _orderService:OrderService) {
-    this.activeOrder = _orderService.getCurrentOrder();
   }
 
   ngOnInit() {
+    this.activeOrder = this._orderService.getCurrentOrder();
   }
 
   getOrderSize():number{

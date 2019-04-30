@@ -1,6 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import {
+  MatCardModule, MatButtonModule, MatIconModule,
+  MatDialogModule, MatFormFieldModule, MatInputModule,
+  MatOptionModule, MatSelectModule
+} from '@angular/material';
 
 import { SwDashboardComponent } from './sw-dashboard.component';
+import { ProductListComponent } from 'src/app/dashboard/product-list/product-list.component';
 
 describe('SwDashboardComponent', () => {
   let component: SwDashboardComponent;
@@ -8,7 +15,10 @@ describe('SwDashboardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SwDashboardComponent ]
+      declarations: [ SwDashboardComponent, ProductListComponent],
+      imports: [MatCardModule, MatButtonModule, MatIconModule,
+      MatDialogModule, MatFormFieldModule, MatInputModule,
+      MatOptionModule, MatSelectModule, HttpClientTestingModule]
     })
     .compileComponents();
   }));

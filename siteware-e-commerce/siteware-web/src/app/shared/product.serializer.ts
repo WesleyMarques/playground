@@ -6,6 +6,7 @@ import { PromotionPayTake } from 'src/app/shared/models/promotion-pay-take.model
 export class ProductSerializer implements Serializeble{
 
   fromJson(json: any):Product{
+    if(!json) return undefined;
     const product = new Product();
     product.id = json._id;
     product.name = json.name;
@@ -18,7 +19,7 @@ export class ProductSerializer implements Serializeble{
     let productJson = {
       name: product.name,
       price: product.price*100,
-      promotion: product.promotion
+      promotion: product.promotion && product.promotion.id
     };
     return productJson;
   }
@@ -28,7 +29,7 @@ export class ProductSerializer implements Serializeble{
     if(promotion.discount_fixed){
       return new PromotionFixedValue(promotion.quantidade, promotion.discount_fixed);
     }else if(promotion.discount_percent){
-      return new PromotionPayTake(promotion.quantidade, promotion.discount_fixed);
+      return new PromotionPayTake(promotion.quantidade, promotion.discount_percent);
     }
   }
 

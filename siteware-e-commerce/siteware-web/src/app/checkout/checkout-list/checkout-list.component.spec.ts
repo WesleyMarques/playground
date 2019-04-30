@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatTableModule, MatButtonModule, MatIconModule } from '@angular/material';
 
 import { CheckoutListComponent } from './checkout-list.component';
 
@@ -8,7 +9,8 @@ describe('CheckoutListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CheckoutListComponent ]
+      declarations: [ CheckoutListComponent ],
+      imports: [MatTableModule, MatButtonModule, MatIconModule]
     })
     .compileComponents();
   }));

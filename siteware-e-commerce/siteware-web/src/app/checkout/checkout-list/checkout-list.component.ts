@@ -14,18 +14,18 @@ export class CheckoutListComponent implements OnInit {
   @Input() order: Order;
   @ViewChild(MatTable) table: MatTable<any>;
 
-  displayedColumns: string[] = ['name', 'quantidade', 'price'];
+  displayedColumns: string[] = ['name', 'quantidade', 'price', 'discount', 'total'];
   items: Item[] = [];
 
   constructor() {
   }
 
   ngOnInit() {
-    this.items = this.order.getItems();
+    this.items = this.order && this.order.getItems();
   }
 
   hasItems() {
-    return this.items.length > 0;
+    return this.items && this.items.length > 0;
   }
 
   removeItem(item: Item) {

@@ -7,14 +7,14 @@ import {
   MatOptionModule, MatSelectModule
 } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { ProductListComponent } from './product-list/product-list.component';
 import { NewProductComponent } from './new-product/new-product.component';
-import { NewPromotionComponent } from './new-promotion/new-promotion.component';
 import { SwDashboardComponent } from './sw-dashboard/sw-dashboard.component';
 
 @NgModule({
-  declarations: [ProductListComponent, NewProductComponent, NewPromotionComponent, SwDashboardComponent],
+  declarations: [ProductListComponent, NewProductComponent, SwDashboardComponent],
   imports: [
     CommonModule,
     MatCardModule,
@@ -26,9 +26,10 @@ import { SwDashboardComponent } from './sw-dashboard/sw-dashboard.component';
     FormsModule,
     HttpClientModule,
     MatOptionModule,
-    MatSelectModule
+    MatSelectModule,
+    FlexLayoutModule
   ],
   exports: [SwDashboardComponent],
-  entryComponents: [NewProductComponent, NewPromotionComponent]
+  entryComponents: [NewProductComponent]
 })
 export class DashboardModule { }

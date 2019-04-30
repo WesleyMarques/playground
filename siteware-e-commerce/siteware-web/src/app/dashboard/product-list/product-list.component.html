@@ -1,3 +1,16 @@
-<p>
-  product-list works!
-</p>
+<div fxLayout="column" fxLayoutAlign="space-between stretch" fxLayoutGap="10px">
+  <mat-card *ngFor="let product of products" fxFlex>
+    <div fxFlex fxLayout="row">
+      <div fxFlex="40" class="">
+        {{product.name}}
+      </div>
+      <div fxFlex="30" class="">
+        {{product.price | currency}}
+      </div>
+      <div fxFlex="30" fxLayoutAlign="end end" class="">
+        <mat-icon (click)="editProductDialog(product)">edit</mat-icon>
+        <mat-icon (click)="deleteProduct(product)">delete</mat-icon>
+      </div>
+    </div>
+  </mat-card>
+</div>

@@ -16,12 +16,14 @@ export class SwProductGridComponent implements OnInit {
   order:any;
 
   constructor(private _productService:ProductService, private _orderService:OrderService) {
-    this.order = this._orderService.getCurrentOrder();
+
   }
 
   ngOnInit() {
+    this.order = this._orderService.getCurrentOrder();
     this._productService.list().subscribe(data => {
       this.products = data;
+      console.log(data)
     });
   }
 

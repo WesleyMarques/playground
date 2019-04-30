@@ -8,10 +8,19 @@
       <input matInput placeholder="Preço" type="number" class="example-right-align" [(ngModel)]="product.price" name="price">
       <span matPrefix>R$&nbsp;</span>
     </mat-form-field>
+    <mat-form-field>
+      <mat-label>Promotion</mat-label>
+      <mat-select [(value)]="product.promotion">
+        <mat-option *ngFor="let promotion of promotions" [value]="promotion">
+          {{promotion.type}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
   </div>
 </mat-dialog-content>
 <mat-dialog-actions>
   <button mat-button mat-dialog-close>Cancelar</button>
   <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
-  <button mat-button [mat-dialog-close]="true" (click)="createProduct()">Cadastrar</button>
+  <button mat-button [mat-dialog-close]="true" (click)="createProduct()" *ngIf="!modeEdit">Cadastrar</button>
+  <button mat-button [mat-dialog-close]="true" (click)="updateProduct()" *ngIf="modeEdit">Atualizar</button>
 </mat-dialog-actions>

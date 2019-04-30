@@ -1,5 +1,5 @@
 export class Resource{
-  id:String;
+  id:string;
 
 
   getId(){

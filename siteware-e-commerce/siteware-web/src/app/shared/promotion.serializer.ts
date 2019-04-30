@@ -7,16 +7,19 @@ export class PromotionSerializer implements Serializeble{
 
   fromJson(json: any):Promotion{
     const promotion = this._getPromotionType(json);
-    console.log(promotion);
+    promotion.id = json._id;
     return promotion;
   }
 
   toJson(promotion:Promotion):any{
     const productJson = Object.assign({}, promotion);
+    delete productJson.id;
+    delete promotion.type;
     return productJson;
   }
 
   private _getPromotionType(promotion:any){
+    console.log(promotion);
     if(!promotion) return undefined;
     if(promotion.discount_fixed){
       return new PromotionFixedValue(promotion.quantidade, promotion.discount_fixed);
