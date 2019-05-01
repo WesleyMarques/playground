@@ -1,0 +1,6 @@
+apps:
+  - script   : 'index.js'
+    name     : 'sw-ecommerce'
+    exec_mode: "cluster"
+    instances: "max"
+    kill_timeout: 300000
