@@ -12,6 +12,10 @@ export class Order{
     this.items = [];
   }
 
+  isEmpty(){
+    return this.size() == 0;
+  }
+
   hasItem(item:Item){
     return this.findItem(item);
   }
@@ -33,7 +37,6 @@ export class Order{
   removeItem(item:Item){
     let itemPos = this.findIndexItem(item);
     this.items.splice(itemPos,1);
-    console.log(this.items)
   }
 
   size():number{
@@ -42,5 +45,25 @@ export class Order{
 
   getItems(){
     return this.items;
+  }
+
+  getAmountOfDiscount(){
+    let amount = 0;
+    for(let item of this.items){
+      amount += item.getDiscount();
+    }
+    return amount;
+  }
+
+  getSubTotal(){
+    let amount = 0;
+    for(let item of this.items){
+      amount += item.getTotal();
+    }
+    return amount;
+  }
+
+  getTotal(){
+    return this.getSubTotal() - this.getAmountOfDiscount();
   }
 }

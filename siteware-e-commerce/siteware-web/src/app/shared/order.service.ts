@@ -12,7 +12,6 @@ export class OrderService {
   currentOrder: Order;
 
   constructor() {
-    this.currentOrder = new Order();
   }
 
   getCurrentOrder():Order{
@@ -36,8 +35,12 @@ export class OrderService {
     this.currentOrder.updateItem(item);
   }
 
-  calcDiscount(item:Item){
-
+  calcDiscount(){
+    let amount = 0;
+    for(let item of this.currentOrder.getItems()){
+      amount += item.getDiscount();
+    }
+    return amount;
   }
 
   payOrder(){

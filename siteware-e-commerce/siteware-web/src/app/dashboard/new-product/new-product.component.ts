@@ -31,7 +31,6 @@ export class NewProductComponent implements OnInit {
 
   ngOnInit() {
     this._promotionService.list().subscribe(data => {
-      console.log(data);
       this.promotions = data;
     });
   }

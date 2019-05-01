@@ -5,8 +5,8 @@ export class PromotionFixedValue extends Promotion implements Promotable{
 
   discount_fixed: number;
 
-  constructor(quantidade: number, discount: number){
-    super(quantidade, "3 por 10");
+  constructor(quantidade: number, discount: number, label: string){
+    super(quantidade, label);
     this.discount_fixed = discount/100.0;
   }
 

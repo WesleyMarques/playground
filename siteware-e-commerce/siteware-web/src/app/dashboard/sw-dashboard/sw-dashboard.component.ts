@@ -17,13 +17,12 @@ export class SwDashboardComponent implements OnInit {
 
   openProductDialog(): void {
     const dialogRef = this.dialog.open(NewProductComponent, {
-      height: '400px',
+      height: '350px',
       width: '600px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      // this.animal = result;
     });
   }
 

@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { MatCardModule, MatButtonModule } from '@angular/material';
+import { MatCardModule, MatButtonModule, MatSnackBar } from '@angular/material';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { SwProductGridComponent } from './sw-product-grid.component';
@@ -7,6 +7,12 @@ import { ProductCardComponent } from 'src/app/product-grid/product-card/product-
 
 import { ProductService } from 'src/app/shared/product.service';
 import { OrderService } from 'src/app/shared/order.service';
+
+class MatSnackBarMock {
+  open() {
+    return {};
+  }
+};
 
 describe('SwProductGridComponent', () => {
   let component: SwProductGridComponent;
@@ -16,7 +22,9 @@ describe('SwProductGridComponent', () => {
     TestBed.configureTestingModule({
       declarations: [SwProductGridComponent, ProductCardComponent],
       imports: [MatCardModule, MatButtonModule, HttpClientTestingModule],
-      providers: [ProductService, OrderService]
+      providers: [ProductService, OrderService, {
+        provide: MatSnackBar, useClass: MatSnackBarMock
+      }]
     })
       .compileComponents();
   }));

@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatTableModule, MatButtonModule, MatIconModule } from '@angular/material';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { SwCheckoutComponent } from './sw-checkout.component';
 import { CheckoutListComponent } from 'src/app/checkout/checkout-list/checkout-list.component';
@@ -11,7 +12,7 @@ describe('SwCheckoutComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [SwCheckoutComponent, CheckoutListComponent],
-      imports: [MatTableModule, MatButtonModule, MatIconModule]
+      imports: [MatTableModule, MatButtonModule, MatIconModule, RouterTestingModule]
     })
       .compileComponents();
   }));

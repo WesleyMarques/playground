@@ -1,17 +1,17 @@
 import { Serializeble } from 'src/app/shared/interfaces/serializeble.interface';
 import { Product } from 'src/app/shared/models/product.model';
-import { PromotionFixedValue } from 'src/app/shared/models/promotion-fixed-value.model';
-import { PromotionPayTake } from 'src/app/shared/models/promotion-pay-take.model';
+import { PromotionSerializer } from 'src/app/shared/promotion.serializer';
 
 export class ProductSerializer implements Serializeble{
 
+  promotionSerializer:PromotionSerializer = new PromotionSerializer();
   fromJson(json: any):Product{
     if(!json) return undefined;
     const product = new Product();
     product.id = json._id;
     product.name = json.name;
     product.price = json.price/100;
-    product.promotion = this._getPromotionType(json.promotion);
+    product.promotion = this.promotionSerializer.fromJson(json.promotion);
     return product;
   }
 
@@ -22,15 +22,6 @@ export class ProductSerializer implements Serializeble{
       promotion: product.promotion && product.promotion.id
     };
     return productJson;
-  }
-
-  private _getPromotionType(promotion:any){
-    if(!promotion) return undefined;
-    if(promotion.discount_fixed){
-      return new PromotionFixedValue(promotion.quantidade, promotion.discount_fixed);
-    }else if(promotion.discount_percent){
-      return new PromotionPayTake(promotion.quantidade, promotion.discount_percent);
-    }
   }
 
 }

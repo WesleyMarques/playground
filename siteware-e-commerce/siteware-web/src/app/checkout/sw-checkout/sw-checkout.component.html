@@ -1,1 +1,7 @@
-<app-checkout-list fxFlex="100" [order]="activedOrder"></app-checkout-list>
+<div fxLayout="column" fxLayoutAlign="end stretch" fxLayoutGap="10px">
+  <div fxFlex="100" fxLayout="column" fxLayoutAlign="center center" *ngIf="activedOrder.isEmpty()">
+    Carrinho Vazio
+  </div>
+  <app-checkout-list [order]="activedOrder" *ngIf="!activedOrder.isEmpty()"></app-checkout-list>
+  <button mat-flat-button color="primary" *ngIf="!activedOrder.isEmpty()" (click)="finishOrder()">Finish Order</button>
+</div>
