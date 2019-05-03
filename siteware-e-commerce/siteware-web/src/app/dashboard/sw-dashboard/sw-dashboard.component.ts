@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material';
 
 import { NewProductComponent } from 'src/app/dashboard/new-product/new-product.component';
+import { ProductListComponent } from 'src/app/dashboard/product-list/product-list.component';
 
 @Component({
   selector: 'app-sw-dashboard',
@@ -9,6 +10,8 @@ import { NewProductComponent } from 'src/app/dashboard/new-product/new-product.c
   styleUrls: ['./sw-dashboard.component.scss']
 })
 export class SwDashboardComponent implements OnInit {
+
+  @ViewChild(ProductListComponent) productList: ProductListComponent;
 
   constructor(public dialog: MatDialog) { }
 
@@ -22,7 +25,7 @@ export class SwDashboardComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      this.productList.updateProductList();
     });
   }
 

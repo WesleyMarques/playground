@@ -22,6 +22,7 @@ export class SwCheckoutComponent implements OnInit {
 
   finishOrder(){
     this._orderService.payOrder();
+    this.activedOrder = this._orderService.getCurrentOrder();
     this.router.navigate(['/']);
   }
 

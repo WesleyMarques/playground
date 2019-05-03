@@ -41,7 +41,6 @@ export class NewProductComponent implements OnInit {
 
   createProduct(): void {
     this._productService.create(this.product).subscribe(data => {
-      console.log(data);
     }, err => {
       console.log(err);
     });

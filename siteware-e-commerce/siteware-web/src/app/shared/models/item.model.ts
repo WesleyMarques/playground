@@ -7,7 +7,7 @@ export class Item {
   quantidade: number;
   promotion: Promotion;
 
-  constructor(product: Product) {
+  constructor(product?: Product) {
     this.product = product;
     this.quantidade = 1;
   }
@@ -29,7 +29,7 @@ export class Item {
   }
 
   getDiscount(){
-    if(!this.product.promotion) return 0;
+    if(!this.product || !this.product.promotion) return 0;
     return this.product.promotion.calcDiscount(this.quantidade, this.product.price);
   }
 

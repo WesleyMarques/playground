@@ -6,16 +6,16 @@ import { PromotionPayTake } from 'src/app/shared/models/promotion-pay-take.model
 export class PromotionSerializer implements Serializeble{
 
   fromJson(json: any):Promotion{
-    if(!json) return undefined;
+    if(!json || !json._id) return undefined;
     const promotion = this._getPromotionType(json);
     promotion.id = json._id;
     return promotion;
   }
 
   toJson(promotion:Promotion):any{
-    const productJson = Object.assign({}, promotion);
-    delete productJson.id;
-    return productJson;
+    const promotionJson = Object.assign({}, promotion);
+    delete promotionJson.id;
+    return promotionJson;
   }
 
   private _getPromotionType(promotion:any){
@@ -26,5 +26,4 @@ export class PromotionSerializer implements Serializeble{
       return new PromotionPayTake(promotion.quantidade, promotion.discount_percent, promotion.label);
     }
   }
-
 }

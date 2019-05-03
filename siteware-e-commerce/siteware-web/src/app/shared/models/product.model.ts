@@ -5,4 +5,8 @@ export class Product extends Resource {
   name: string;
   price: number;
   promotion: Promotion;
+
+  hasPromotion(){
+    return Boolean(this.promotion);
+  }
 }

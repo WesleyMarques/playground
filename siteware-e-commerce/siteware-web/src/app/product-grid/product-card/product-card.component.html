@@ -1,10 +1,15 @@
-<mat-card fxFlex class="bottom-border-product-card">
-  <img mat-card-image src="https://www.brandchannel.com/wp-content/uploads/2018/11/unilever-baby-dove-personalized.jpg">
-  <mat-card-content>
-    {{product.name}} - R${{product.price}}
-
-  </mat-card-content>
-  <mat-card-actions fxLayoutAlign="end center">
-    <button mat-flat-button color="primary" type="button" name="button" (click) = "buyProduct(product)">buy</button>
-  </mat-card-actions>
-</mat-card>
+<div class="" style="position:relative">
+  <div class="ribbon" *ngIf="product.hasPromotion()"><span>{{product.promotion.label}}</span></div>
+  <mat-card fxFlex class="bottom-border-product-card">
+    <img mat-card-image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv45hAxbZ0w7ylCeVXq2VyzKo3AMojWR11IEHrvpkiBpvOVFRejQ">
+    <mat-card-content>
+      {{product.name}}
+    </mat-card-content>
+    <mat-card-actions fxLayoutAlign="start center">
+      <div class="" fxFlex="80">
+        <span class="currency">{{product.price | currency}}</span>
+      </div>
+      <button fxFlex="20" mat-flat-button color="primary" type="button" name="button" (click)="buyProduct(product)">buy</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

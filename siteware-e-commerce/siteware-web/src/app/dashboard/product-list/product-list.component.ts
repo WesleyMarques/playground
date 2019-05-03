@@ -17,6 +17,10 @@ export class ProductListComponent implements OnInit {
   constructor(private _productService: ProductService, public dialog: MatDialog) { }
 
   ngOnInit() {
+    this.updateProductList();
+  }
+
+  updateProductList(){
     this._productService.list().subscribe(data => {
       this.products = data;
     });
@@ -38,8 +42,7 @@ export class ProductListComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      // this.animal = result;
+
     });
   }
 

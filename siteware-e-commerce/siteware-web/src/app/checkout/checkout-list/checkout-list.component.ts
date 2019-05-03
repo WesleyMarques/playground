@@ -18,6 +18,9 @@ export class CheckoutListComponent implements OnInit {
   items: Item[] = [];
 
   constructor() {
+    if(!this.order){
+      this.order = new Order();
+    }
   }
 
   ngOnInit() {
