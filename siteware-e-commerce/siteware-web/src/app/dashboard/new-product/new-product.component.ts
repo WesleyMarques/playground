@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatSnackBar } from '@angular/material';
 
 import { Product } from 'src/app/shared/models/product.model';
 import { ProductService } from 'src/app/shared/product.service';
@@ -20,7 +21,8 @@ export class NewProductComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<NewProductComponent>,
     private _productService: ProductService,
     private _promotionService: PromotionService,
-    @Inject(MAT_DIALOG_DATA) public data: Product) {
+    @Inject(MAT_DIALOG_DATA) public data: Product,
+    private snackBar: MatSnackBar) {
     if (data) {
       this.product = data;
       this.modeEdit = true;
@@ -41,8 +43,15 @@ export class NewProductComponent implements OnInit {
 
   createProduct(): void {
     this._productService.create(this.product).subscribe(data => {
+      this.snackBar.open(this.product.name, "Criado", {
+        duration: 1000,
+      });
     }, err => {
-      console.log(err);
+      let error = err.error.message;
+      let errorParser = error.indexOf("[");
+      this.snackBar.open(error.slice(errorParser, error.length), "Error", {
+        duration: 3000,
+      });
     });
   }
 

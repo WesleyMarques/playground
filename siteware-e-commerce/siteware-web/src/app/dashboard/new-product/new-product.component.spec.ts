@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import {
   MatCardModule, MatButtonModule, MatIconModule,
   MatDialogModule, MatFormFieldModule, MatInputModule,
-  MatOptionModule, MatSelectModule, MatDialogRef, MAT_DIALOG_DATA
+  MatOptionModule, MatSelectModule, MatDialogRef, MAT_DIALOG_DATA, MatSnackBar
 } from '@angular/material';
 import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 
@@ -18,6 +18,12 @@ class MdDialogMock {
     return {
       afterClosed: () => { }
     };
+  }
+};
+
+class MatSnackBarMock {
+  open() {
+    return {};
   }
 };
 
@@ -37,8 +43,9 @@ describe('NewProductComponent', () => {
         }, {
           provide: MAT_DIALOG_DATA,
           useValue: {} // Add any data you wish to test if it is passed/used correctly
+        },{
+          provide: MatSnackBar, useClass: MatSnackBarMock
         }
-
       ]
     })
     TestBed.overrideModule(BrowserDynamicTestingModule, {
