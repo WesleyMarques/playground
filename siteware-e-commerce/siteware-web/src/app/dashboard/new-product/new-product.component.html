@@ -5,11 +5,11 @@
       <input matInput placeholder="Nome" [(ngModel)]="product.name" name="name">
     </mat-form-field>
     <mat-form-field>
-      <input matInput placeholder="Preço" type="number" class="example-right-align" [(ngModel)]="product.price" name="price">
+      <input matInput min="0" placeholder="Preço" type="number" class="example-right-align" [(ngModel)]="product.price" name="price">
       <span matPrefix>R$&nbsp;</span>
     </mat-form-field>
     <mat-form-field>
-      <mat-label>Promotion</mat-label>
+      <mat-label>Promoção</mat-label>
       <mat-select [(value)]="product.promotion">
         <mat-option *ngFor="let promotion of promotions" [value]="promotion">
           {{promotion.label}}
